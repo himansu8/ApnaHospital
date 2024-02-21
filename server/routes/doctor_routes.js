@@ -1,5 +1,5 @@
 import express from "express"
-import { doctorSignup, updateDoctorData, deleteDoctor, addAvailability } from "../controllers/doctor_controllers.js"
+import { doctorSignup, updateDoctorData, deleteDoctor, addAvailability, allDoctorData } from "../controllers/doctor_controllers.js"
 import { doctorLogin } from "../controllers/doctor_controllers.js"
 import { viewDoctorData } from "../controllers/doctor_controllers.js"
 import { isDean , isDoctor} from "../middlewares/auth.verifyMiddleWare.js"
@@ -10,6 +10,7 @@ routes.post('/signup',isDean,doctorSignupValidation(),validationErrors, doctorSi
 routes.post('/login',doctorLoginValidation(),validationErrors,doctorLogin)
 routes.post('/availability',isDoctor, addAvailability);
 routes.get('/:doctorId',isDean, viewDoctorData);
+routes.get('/',isDean, allDoctorData);
 routes.patch('/:doctorId',isDean,updateDoctorData);
 routes.delete('/:doctorId',isDean, deleteDoctor );
 

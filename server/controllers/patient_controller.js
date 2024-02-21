@@ -18,7 +18,6 @@ export async function createPatient(req, res) {
             doctorName,
             appointmentTime: new Date(appointmentTime)
         }
-
         let patient = await patientModel.create(patientObj)
         let registrationNumber = patient._id;
         console.log(registrationNumber)

@@ -1,0 +1,398 @@
+* {
+  padding: 0px;
+  margin: 0px
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: rgb(9, 163, 83);
+  color: black;
+  border: 1px solid black;
+  height: 120px;
+}
+footer{
+  position:fixed;
+  background-color: rgb(9, 163, 83);
+  bottom: 0; /* Position it at the bottom of the page */
+  width: 100%; /* Full width */
+  height: 50px; /* Adjust height as needed */
+   text-align: center;
+  line-height: 50px; /* Center content vertically */
+  }
+
+.logo_cont {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 400px;
+  height: 130px;
+  margin-right: 10px;
+}
+
+.nav_items ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  margin-right: 20px;
+}
+
+.nav_items li {
+  cursor: pointer;
+  font-size: 16px;
+}
+
+
+
+
+/* CSS for Patient Component */
+
+form {
+  margin: 20px auto;
+  max-width: 400px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+.head1{
+  padding: 10px;
+ text-align: center;
+}
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="address"],
+input[type="password"],
+input[type="datetime-local"] {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  margin-bottom: -10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+button[type="submit"],
+button[type="button"] {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 10px;
+  margin-left: 40%;
+}
+
+button[type="submit"]:hover,
+button[type="button"]:hover {
+  background-color: #45a049;
+  border: 1px solid black;
+}
+
+button[type="submit"] {
+  margin-right: 10px;
+}
+
+button[type="button"] {
+  background-color: #f44336;
+}
+
+button[type="button"]:hover {
+  background-color: #da190b;
+}
+
+h3 {
+  text-align: center;
+}
+
+button {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #4caf50;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color:  #7a1fa2;
+  border: 1px solid black;
+}
+
+.container {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+/* CSS for Patient Component */
+.patient-container {
+  flex: 1;
+  margin-right: 20px;
+  /* Adjust the spacing between components */
+}
+
+/* CSS for Login Component */
+.login-container {
+  flex: 1;
+  margin-top: 50px;
+  margin-left: 20px;
+  /* Adjust the spacing between components */
+}
+
+
+
+.image-container {
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+  /* Ensure the overflow is hidden */
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(calc(-100% * 3));
+    /* Move three times the width of the container */
+  }
+}
+
+.header-image {
+  height: auto;
+  width: 100vw;
+  /* Occupies full viewport width */
+  max-height: 100vh;
+  /* Limit image height to viewport height */
+  animation: scroll 20s linear infinite;
+  /* Adjust duration as needed */
+}
+
+ /* Dean page */
+
+/* Styling for the navigation container */
+.nav_items1 {
+  margin-top: 50px;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #f6d365, #fda085);
+  padding: 20px;
+  text-align: center; /* Center align the items */
+}
+
+/* Styling for the dean's name */
+.deanName {
+  color: #333;
+  margin-bottom: 10px;
+}
+.logoutbtn {
+  position: absolute;
+  top: 138px; /* Adjust as needed */
+  right: 10px; /* Adjust as needed */
+  cursor: pointer;
+  background-color: #f10a0a;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+.logoutbtn:hover {
+  background-color: #cc0000;
+}
+.MyDashboard {
+  position: absolute;
+  top: 138px; /* Adjust as needed */
+  right: 110px; /* Adjust as needed */
+  cursor: pointer;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+.MyDashboard:hover {
+  background-color: #0056b3;
+}
+
+/* Styling for the list items */
+.nav_items1 ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Styling for the list items */
+.nav_items1 ul li {
+  display: inline-block; /* Display items inline */
+  margin-right: 20px; /* Adjust spacing between items */
+}
+
+/* Styling for the dropdown/select elements */
+.nav_items1 select {
+  padding: 8px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.nav_items1 select:focus {
+  outline: none;
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling for the dropdown/select options */
+.nav_items1 select option {
+  padding: 5px;
+}
+
+/* Hover effect for options */
+.nav_items1 select option:hover {
+  background-color: #f8f8f8;
+}
+
+.dashboard_data_container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 10px;
+}
+
+.dashboard_data {
+  margin: 20px auto;
+  width: 95%;
+  overflow-x: auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Specify the font family */
+}
+
+.dashboard_data table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard_data th, .dashboard_data td {
+  padding: 12px;
+  text-align: left;
+  border: 1px solid #ddd;
+  font-size: 14px;
+  font-weight: 500; /* Adjust font weight */
+}
+
+.dashboard_data th {
+  background-color: #4CAF50;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.dashboard_data td {
+  background-color: #f2f2f2;
+  color: #333;
+  text-align: center;
+  font-weight: normal; /* Reset font weight */
+}
+
+.dashboard_data th:last-child,
+.dashboard_data td:last-child {
+  padding-right: 20px; /* Add extra padding to the last column */
+}
+
+.dashboard_data tr:hover {
+  background-color: #ddd;
+}
+
+.back {
+  display: block; /* Ensure the link fills the width of its container */
+  width: 100px; /* Adjust the width as needed */
+  margin: 10px; /* Center the link horizontally and add some margin */
+  padding: 6px; /* Add padding for better clickable area */
+  text-align: center; /* Center the text */
+  color: white; /* Set the text color */
+  background-color:#007bff ;
+  text-decoration: none; /* Remove underline */
+  border: 1px solid #007bff; /* Add border */
+  border-radius: 5px; /* Add border radius */
+}
+
+
+.back:hover {
+  border: 1px solid black;
+}
+
+.patient_dashboard_data_container {
+  margin: 20px auto; /* Center the container horizontally */
+  width: calc(100% - 40px); /* Adjust width to leave space for scrollbar */
+ margin-bottom: 50px;
+  overflow-x: auto; /* Enable horizontal scrolling */
+}
+
+.patient_dashboard_data {
+  width: max-content; /* Adjust width to fit content */
+  overflow: auto; /* Ensure table content is scrollable */
+}
+
+.patient_dashboard_data table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.patient_dashboard_data th,
+.patient_dashboard_data td {
+  padding: 12px;
+  text-align: left;
+  border: 1px solid #ddd;
+  font-size: 14px;
+}
+
+.patient_dashboard_data th {
+  background-color: #4CAF50;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.patient_dashboard_data td {
+  background-color: #f2f2f2;
+  color: #333;
+  text-align: center;
+}
+
+.patient_dashboard_data th:last-child,
+.patient_dashboard_data td:last-child {
+  padding-right: 20px;
+}
+
+.patient_dashboard_data tr:hover {
+  background-color: #ddd;
+}

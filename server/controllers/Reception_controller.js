@@ -1,5 +1,6 @@
 import ReceiptionsModel from "../models/Receiptions_model.js";
 import doctorModel from "../models/doctor_model.js";
+import Deanmodel from "../models/dean_model.js";
 import bcrypt from "bcrypt";
 import sendMail from "../email.js";
 import mongoose from "mongoose";
@@ -9,13 +10,18 @@ export const receptionistSignup = async (req, res) => {
         let { name, userName, password, gender, email, mobile, address } = req.body;
 
         //
-        let userFound = await doctorModel.findById(req.payload.user_id)
-        // console.log( userFound)
+        let userFound = await doctorModel.findById(req.payload.user_id) || Deanmodel.findById(req.payload.user_id)
+        // console.log( userFound.Deanmodel)
+        // let userFound1 = await Deanmodel.findById(req.payload.user_id)
+        // console.log( userFound1)
 
-        if (!userFound) {
-            return res.status(404).send("Doctor not found")
+        if (!userFound ) {
+            return res.status(404).send("Not found")
         }
+        // else if (!userFound1){
+        //     return res.status(404).send("Not found1")
 
+        // }
 
         let userNameFound = await ReceiptionsModel.findOne({ userName: userName })
         if (userNameFound) {
@@ -41,8 +47,10 @@ export const receptionistSignup = async (req, res) => {
             email,
             mobile,
             address,
-            addedBy: userFound.name
+            // addedBy: userFound.name
         }
+
+        
 
         await ReceiptionsModel.create(receptionistData)
 
@@ -62,8 +70,8 @@ export const receptionistSignup = async (req, res) => {
         sendMail(usermailBody)
     }
     catch (error) {
-        console.log(err)
-        res.status(500).json({ error: 'something went wrong' });
+        console.log(error)
+        res.status(500).json({ error: 'something went wrong in recep' });
     }
 }
 
