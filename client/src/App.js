@@ -1,5 +1,6 @@
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
+import { useState } from 'react';
 import Header from './Components/Header';
 import Body from './Components/Body';
 import Foooter from './Components/Foooter';
@@ -21,7 +22,26 @@ import ViewPatient from './Components/ViewPatient';
 import EditDoctor from './Components/Doctor/EditDoctor';
 import EditReceptionist from './Components/Receptionist/EditReceptionist';
 import EditPatient from './Components/EditPatient';
+import DeanDashboardBar from './Components/Dean/DeanDashboardBar';
+import DoctorDashboardBar from './Components/Doctor/DoctorDashboardBar';
+import Privateroutes from './Components/Privaterouter';
 function App() {
+  const [alert, setAlert] = useState(null);
+
+
+
+
+  const showAlert = (payload) => {
+    setAlert({
+      type: payload.type,
+      msg: payload.msg
+    })
+
+    setTimeout(() => {
+      setAlert(null);
+    }, 2000)
+  }
+  
   return (
     <div>
       <Routes>
@@ -29,32 +49,33 @@ function App() {
         <Route path='/apnahospital/dean' element={<><Header /> <DeanLogin /> <Foooter /></>} />
         <Route path='/apnahospital/doctor' element={<><Header /> <DoctorLogin /> <Foooter /></>} />
         <Route path='/apnahospital/receptionist' element={<><Header /> <ReceptionistLogin /> <Foooter /></>} />
-        <Route path='/apnahospital/dean/dashboard' element={<><Header /> <DeanPage /> <Foooter /></>} />
-        <Route path='/apnahospital/doctor/dashboard' element={<><Header /> <DoctorPage /> <Foooter /></>} />
-        <Route path='/apnahospital/receptionist/dashboard' element={<><Header /> <ReceptionistPage /> <Foooter /></>} />
-        {/* Dean Dashboard */}
-        <Route path='/apnahospital/dean/dashboard/doctorsignup' element={<><Header /> <DoctorSignUp /> <Foooter /></>} />
-        <Route path='/apnahospital/dean/dashboard/all_doctor' element={<><Header /> <AllDoctorData /> <Foooter /></>} />
-        <Route path='/apnahospital/dean/doctor/:doctorId' element={<><Header /> <ViewDoctor /> <Foooter /></>} />
-        <Route path='/apnahospital/dean/doctor/edit/:_id' element={<><Header /> <EditDoctor /> <Foooter /></>} />
-        <Route path='/apnahospital/dean/dashboard/receptionistsignup' element={<><Header /> <ReceptionistSignUp /> <Foooter /></>} />
-        <Route path='/apnahospital/dean/dashboard/all_receptionist' element={<><Header /> <AllReceptionistData /> <Foooter /></>} />
-        <Route path='/apnahospital/dean/edit/:referenceNo' element={<><Header /> <EditReceptionist /> <Foooter /></>} />
-        <Route path='/apnahospital/receptionist/:referenceNo' element={<><Header /> <ViewReceptionist /> <Foooter /></>} />
-        <Route path='/apnahospital/patient/register' element={<><Header /> <Patient /> <Foooter /></>} />
-        <Route path='/apnahospital/patient' element={<><Header /> <PatientsData /> <Foooter /></>} />
-        <Route path='/apnahospital/patient/:referenceNo' element={<><Header /> <ViewPatient /> <Foooter /></>} />
-        <Route path='/apnahospital/patient/edit/:referenceNo' element={<><Header /> <EditPatient /> <Foooter /></>} />
-
-        {/* Doctor Dashboard */}
-        <Route path='/apnahospital/doctor/dashboard/receptionistsignup' element={<><Header /> <ReceptionistSignUp /> <Foooter /></>} />
-        <Route path='/apnahospital/doctor/dashboard/all_receptionist' element={<><Header /> <AllReceptionistData /> <Foooter /></>} />
 
 
+        <Route element={<Privateroutes />} >
+          <Route path='/apnahospital/dean/dashboard' element={<><Header /> <DeanDashboardBar /> <DeanPage /> <Foooter /></>} />
+          <Route path='/apnahospital/doctor/dashboard' element={<><Header /> <DoctorPage /> <Foooter /></>} />
+          <Route path='/apnahospital/receptionist/dashboard' element={<><Header /> <ReceptionistPage /> <Foooter /></>} />
+          {/* Dean Dashboard */}
+          <Route path='/apnahospital/dean/dashboard/doctorsignup' element={<><Header /> <DeanDashboardBar /><DoctorSignUp /> <Foooter /></>} />
+          <Route path='/apnahospital/dean/dashboard/all_doctor' element={<><Header /> <DeanDashboardBar />  <AllDoctorData /> <Foooter /></>} />
+          <Route path='/apnahospital/dean/doctor/:doctorId' element={<><Header /> <DeanDashboardBar /> <ViewDoctor /> <Foooter /></>} />
+          <Route path='/apnahospital/dean/doctor/edit/:_id' element={<><Header /> <DeanDashboardBar /> <EditDoctor /> <Foooter /></>} />
+          <Route path='/apnahospital/dean/dashboard/receptionistsignup' element={<><Header /> <DeanDashboardBar /> <ReceptionistSignUp /> <Foooter /></>} />
+          <Route path='/apnahospital/dean/dashboard/all_receptionist' element={<><Header /> <DeanDashboardBar /> <AllReceptionistData /> <Foooter /></>} />
+          <Route path='/apnahospital/dean/edit/:referenceNo' element={<><Header /> <EditReceptionist /> <Foooter /></>} />
+          <Route path='/apnahospital/receptionist/:referenceNo' element={<><Header /> <ViewReceptionist /> <Foooter /></>} />
+          <Route path='/apnahospital/patient/register' element={<><Header /> <Patient /> <Foooter /></>} />
+          <Route path='/apnahospital/patient' element={<><Header /> <PatientsData /> <Foooter /></>} />
+          <Route path='/apnahospital/patient/:referenceNo' element={<><Header /> <ViewPatient /> <Foooter /></>} />
+          <Route path='/apnahospital/patient/edit/:referenceNo' element={<><Header /> <EditPatient /> <Foooter /></>} />
+          {/* Doctor Dashboard */}
+          <Route path='/apnahospital/doctor/dashboard/receptionistsignup' element={<><Header /> <DoctorDashboardBar /> <ReceptionistSignUp /> <Foooter /></>} />
+          <Route path='/apnahospital/doctor/dashboard/all_receptionist' element={<><Header /> <DoctorDashboardBar /> <AllReceptionistData /> <Foooter /></>} />
+        </Route>
 
 
       </Routes>
-    </div>
+    </div >
   );
 }
 

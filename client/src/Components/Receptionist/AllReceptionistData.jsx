@@ -53,22 +53,24 @@ function AllReceptionistData() {
             }
         )
     }
+    function onClickHandler(referenceNo,name,gender,email,mobile,address,password) {
 
+        navigate(
+            `/apnahospital/dean/edit/${referenceNo}`,
+            {
+                state: {
+                    referenceNo,name,gender,email,mobile,address,password
+                }
+            }
+        )
+    }
 
     useEffect(() => {
         fetchReceptionist()
     }, [])
     return (
         <>
-            <div class="button-container">
-                <button type="button" class='MyDashboard' onClick={() => {
-                    navigate("/apnahospital/dean/dashboard");
-                }}>My Dashboard</button>
-                <button type="button" class='logoutbtn' onClick={() => {
-                    localStorage.removeItem('token')
-                    navigate("/");
-                }}>Log out</button>
-            </div>
+
             <br />
             <br />
             <div className="dashboard_data">
@@ -103,8 +105,9 @@ function AllReceptionistData() {
                                     <td>{ele.mobile}</td>
                                     <td>{ele.address}</td>
                                     <td><button className="delete-button" type="delete" title="Delete" onClick={() => deleteReceptionist(ele._id)}>&#10006;</button></td>
-                                    <td><button className="edit-button" type="edit" title="Edit"><Link to={`/apnahospital/dean/edit/${ele._id}`}>&#9998;</Link></button></td>
+                                    <td><button className="edit-button" type="edit" title="Edit"onClick={() => onClickHandler(ele._id, ele.name, ele.gender,ele.email,ele.mobile,ele.address,ele.password)}>&#9998;</button></td>
                                     {/* <td><Link to={`/task/${task._id}`} className="view-link">View</Link></td> */}
+
                                     <td><button title="View" onClick={() => onClickHandler2(ele._id)}>&#128065;</button></td>
 
                                 </tr>

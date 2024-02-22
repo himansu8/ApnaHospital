@@ -36,9 +36,10 @@ function EditPatient() {
             [e.target.name]: e.target.value
         })
     }
-    const inputData = async (referenceNo) => {
+    const inputData = async (e, referenceNo) => {
 
         try {
+            e.preventDefault();
             let token = JSON.parse(localStorage.getItem('token')).token;
             //console.log(token)
             let res = await axios.patch(`/api/patient/${referenceNo}`, data, {
@@ -51,9 +52,30 @@ function EditPatient() {
             window.alert("Updated successfully");
             navigate("/apnahospital/patient");
         } catch (error) {
-            console.log(error);
+            let errorString = "";
+      //handling express validator errors
+      if (error.response.data.errors) {
+        error.response.data.errors.forEach((ele) => {
+          errorString += `${ele.msg} `
+        })
+        // showAlert({
+        //   type: "error",
+        //   msg: errorString
+        // })
+        window.alert(errorString)
 
-        }
+      }
+      else {
+        //Custom errors
+        errorString = error.response.data.error;
+        // showAlert({
+        //   type: "error",
+        //   msg: errorString
+        // })
+        window.alert(errorString)
+
+      }
+    }
     };
   return (
 <>
@@ -104,7 +126,7 @@ function EditPatient() {
                         <input type="datetime-local" placeholder="Enter Date" name="newAppointmentTime" onChange={onChangeHandler} value={data.newAppointmentTime} />
                     </label><br />
                     <br />
-                    <button type="submit" onClick={() => inputData(referenceNo)}>Submit</button>
+                    <button type="submit" onClick={(e) => inputData(e, referenceNo)}>Submit</button>
                 </div>
 
             </form >

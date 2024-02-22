@@ -37,18 +37,42 @@ function Patient() {
             let res = await axios.post('/api/patient', patientData)
             console.log(res.data)
             window.alert("Thank You For chossing us. Your Appointment details are send to your mail")
-            setPatientData({patientName: "",
-            gender: "",
-            mobileNumber: "",
-            address: "",
-            email: "",
-            aadhar: "",
-            department: "",
-            doctorName: "",
-            appointmentTime: ""})
-            
+            setPatientData({
+                patientName: "",
+                gender: "",
+                mobileNumber: "",
+                address: "",
+                email: "",
+                aadhar: "",
+                department: "",
+                doctorName: "",
+                appointmentTime: ""
+            })
+
         } catch (error) {
-            console.log(error)
+            let errorString = "";
+            //handling express validator errors
+            if (error.response.data.errors) {
+                error.response.data.errors.forEach((ele) => {
+                    errorString += `${ele.msg} `
+                })
+                // showAlert({
+                //   type: "error",
+                //   msg: errorString
+                // })
+                window.alert(errorString)
+
+            }
+            else {
+                //Custom errors
+                errorString = error.response.data.error;
+                // showAlert({
+                //   type: "error",
+                //   msg: errorString
+                // })
+                window.alert(errorString)
+
+            }
         }
     }
     function onClear(e) {
@@ -64,11 +88,11 @@ function Patient() {
             doctorName: "",
             appointmentTime: ""
         });
-      }
+    }
 
     return (
         <>
-        
+
             <form>
                 <div>
                     <h1 className='head1'>Book An Appointment</h1>
@@ -76,10 +100,34 @@ function Patient() {
                         <b>Full Name</b><br />
                         <input type="text" placeholder="Enter Your Name" name="patientName" onChange={onChangeHandler} value={patientName} />
                     </label>
-                    <br />
-                    <label>
+
+                    {/* <label>
                         <b>Gender</b><br />
                         <input type="text" placeholder="Enter gender" name="gender" onChange={onChangeHandler} value={gender} />
+                    </label> */}
+                    <br />
+                    <label>
+                        <b>Gender  </b>
+                        <label style={{ display: 'inline-block', marginRight: '50px', marginTop: "20px", marginLeft: "50px" }}>
+                            <input
+                                type="radio"
+                                name="gender"
+                                value="male"
+                                onChange={onChangeHandler}
+                                checked={gender === "male"}
+                            />
+                            Male
+                        </label>
+                        <label style={{ display: 'inline-block' }}>
+                            <input
+                                type="radio"
+                                name="gender"
+                                value="female"
+                                onChange={onChangeHandler}
+                                checked={gender === "female"}
+                            />
+                            Female
+                        </label>
                     </label>
                     <br />
                     <label>

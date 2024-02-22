@@ -40,17 +40,34 @@ function EditDoctor() {
             window.alert("Updated successfully");
             navigate("/apnahospital/dean/dashboard/all_doctor");
         } catch (error) {
-            console.log(error);
+            let errorString = "";
+      //handling express validator errors
+      if (error.response.data.errors) {
+        error.response.data.errors.forEach((ele) => {
+          errorString += `${ele.msg} `
+        })
+        // showAlert({
+        //   type: "error",
+        //   msg: errorString
+        // })
+        window.alert(errorString)
 
-        }
+      }
+      else {
+        //Custom errors
+        errorString = error.response.data.error;
+        // showAlert({
+        //   type: "error",
+        //   msg: errorString
+        // })
+        window.alert(errorString)
+
+      }
+    }
     };
 
     return (
         <>
-            <button type="button" className='logoutbtn' onClick={() => {
-                localStorage.removeItem('token')
-                navigate("/");
-            }}>Log out</button>
 
             <form>
                 <div>

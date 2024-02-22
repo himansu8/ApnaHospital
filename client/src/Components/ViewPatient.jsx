@@ -29,6 +29,7 @@ function ViewPatient() {
             console.log(error);
         }
     };
+
     useEffect(() => {
         fetchPatient(referenceNo);
     }, []);
@@ -45,6 +46,7 @@ function ViewPatient() {
                 <div className="dashboard_data">
                     <center>
                         <table>
+                            <thead>
                             <tr>
                                 <th>Serial No</th>
                                 <th>Id</th>
@@ -58,6 +60,8 @@ function ViewPatient() {
                                 <th>Doctor's Name</th>
                                 <th>Appointment Date & Time</th>
                             </tr>
+                            </thead>
+                            <tbody>
                             <tr key={patient._id}>
                                 <td>1</td>
                                 <td>{patient._id}</td>
@@ -71,6 +75,7 @@ function ViewPatient() {
                                 <td>{patient.doctorName}</td>
                                 <td>{patient.appointmentTime}</td>
                             </tr>
+                            </tbody>
                         </table>
                     </center>
                 </div>

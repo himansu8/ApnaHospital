@@ -77,15 +77,6 @@ function AllDoctorData() {
 
     return (
         <>
-      <div class="button-container">
-        <button type="button" class='MyDashboard' onClick={() => {
-          navigate("/apnahospital/dean/dashboard");
-        }}>My Dashboard</button>
-        <button type="button" class='logoutbtn' onClick={() => {
-          localStorage.removeItem('token')
-          navigate("/");
-        }}>Log out</button>
-      </div>
             <Link to='/apnahospital/dean/dashboard' className="back">BACK</Link>
             <div className="dashboard_data_container">
                 <div className="dashboard_data">

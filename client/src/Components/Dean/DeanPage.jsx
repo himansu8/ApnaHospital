@@ -28,18 +28,6 @@ function DeanPage() {
   }
   return (
     <>
-      <div class="button-container">
-        <button type="button" class='MyDashboard' onClick={() => {
-          navigate("/apnahospital/dean/dashboard");
-        }}>My Dashboard</button>
-        <button type="button" class='logoutbtn' onClick={() => {
-          localStorage.removeItem('token')
-          navigate("/");
-        }}>Log out</button>
-      </div>
-
-
-
       <div className="nav_items1">
 
 

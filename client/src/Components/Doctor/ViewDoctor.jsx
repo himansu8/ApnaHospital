@@ -37,10 +37,6 @@ function ViewDoctor() {
 
     return (
         <>
-            <button type="button" className='logoutbtn' onClick={() => {
-                localStorage.removeItem('token')
-                navigate("/");
-            }}>Log out</button>
             <Link to='/apnahospital/dean/dashboard/all_doctor' className="back">BACK</Link>
             <div className="dashboard_data_container">
                 <div className="dashboard_data">
