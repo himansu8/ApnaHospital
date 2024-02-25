@@ -36,6 +36,8 @@ function Patient() {
             // console.log(patientData);
             let res = await axios.post('/api/patient', patientData)
             console.log(res.data)
+            const confirmed = window.confirm("Are you submited your form?");
+            if (!confirmed) return;
             window.alert("Thank You For chossing us. Your Appointment details are send to your mail")
             setPatientData({
                 patientName: "",
@@ -77,6 +79,8 @@ function Patient() {
     }
     function onClear(e) {
         e.preventDefault();
+        const confirmed = window.confirm("Are you sure you want to clear?");
+        if (!confirmed) return;
         setPatientData({
             patientName: "",
             gender: "",

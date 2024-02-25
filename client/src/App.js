@@ -26,10 +26,8 @@ import DeanDashboardBar from './Components/Dean/DeanDashboardBar';
 import DoctorDashboardBar from './Components/Doctor/DoctorDashboardBar';
 import Privateroutes from './Components/Privaterouter';
 function App() {
+
   const [alert, setAlert] = useState(null);
-
-
-
 
   const showAlert = (payload) => {
     setAlert({
@@ -62,8 +60,8 @@ function App() {
           <Route path='/apnahospital/dean/doctor/edit/:_id' element={<><Header /> <DeanDashboardBar /> <EditDoctor /> <Foooter /></>} />
           <Route path='/apnahospital/dean/dashboard/receptionistsignup' element={<><Header /> <DeanDashboardBar /> <ReceptionistSignUp /> <Foooter /></>} />
           <Route path='/apnahospital/dean/dashboard/all_receptionist' element={<><Header /> <DeanDashboardBar /> <AllReceptionistData /> <Foooter /></>} />
-          <Route path='/apnahospital/dean/edit/:referenceNo' element={<><Header /> <EditReceptionist /> <Foooter /></>} />
-          <Route path='/apnahospital/receptionist/:referenceNo' element={<><Header /> <ViewReceptionist /> <Foooter /></>} />
+          <Route path='/apnahospital/edit/:referenceNo' element={<><Header /> <EditReceptionist /> <Foooter /></>} />
+          <Route path='/apnahospital/receptionist/:referenceNo' element={<><Header /> <DeanDashboardBar /> <ViewReceptionist /> <Foooter /></>} />
           <Route path='/apnahospital/patient/register' element={<><Header /> <Patient /> <Foooter /></>} />
           <Route path='/apnahospital/patient' element={<><Header /> <PatientsData /> <Foooter /></>} />
           <Route path='/apnahospital/patient/:referenceNo' element={<><Header /> <ViewPatient /> <Foooter /></>} />

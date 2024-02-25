@@ -56,7 +56,7 @@ function AllReceptionistData() {
     function onClickHandler(referenceNo,name,gender,email,mobile,address,password) {
 
         navigate(
-            `/apnahospital/dean/edit/${referenceNo}`,
+            `/apnahospital/edit/${referenceNo}`,
             {
                 state: {
                     referenceNo,name,gender,email,mobile,address,password
